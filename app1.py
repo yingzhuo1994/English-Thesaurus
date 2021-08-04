@@ -7,6 +7,9 @@ def translate(w):
     w = w.lower()
     if w in data:
         return data[w]
+    elif w.title() in data:
+        # title() method will convert the first letter to uppercase and the rest to lowercase. 
+        return data[w.title()]
     elif len(get_close_matches(w, data.keys())) > 0:
         close_match = get_close_matches(w, data.keys())[0]
         yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % close_match)
